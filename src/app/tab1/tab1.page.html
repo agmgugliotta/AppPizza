@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Choose existing Pizzas
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,21 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Choose It</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <br>
+  <ion-grid *ngIf="lstPizza">
+    <ion-row>
+      <ion-col col-4 *ngFor="let pizza of lstPizza">
+        <h1>{{pizza.nom}}</h1>
+        <img [src]="pizza.photo" (click)="pizzaDetail(pizza)">
+        <h3>{{pizza.prix}} €</h3>
+        <!--ion-col col-4 *ngFor="let ingredient of pizza.ingredients">
+          <h6>{{ingredient}}</h6>
+        </ion-col-->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <br>
 </ion-content>

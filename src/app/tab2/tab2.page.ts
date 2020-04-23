@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  pizza: any;
+
+  constructor() {
+    this.pizza = JSON.parse(localStorage.getItem('pizza'));
+    console.log(this.pizza);
+  }
 
 }
