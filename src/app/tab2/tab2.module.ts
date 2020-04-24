@@ -20,18 +20,9 @@ import { Tab2PageRoutingModule } from './tab2-routing.module';
   declarations: [Tab2Page]
 })
 
-export class Tab2PageModule implements OnInit {
-
-  pizza: any;
+export class Tab2PageModule {
 
   constructor() {
-    this.pizza = localStorage.getItem('pizza');
-    this.ngOnInit();
-    console.log(this.pizza);
-    console.log(localStorage.getItem('pizza'));
   }
 
-  ngOnInit() {
-    console.log(localStorage.getItem('pizza'));
-  }
 }

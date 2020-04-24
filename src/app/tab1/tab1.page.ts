@@ -19,14 +19,12 @@ export class Tab1Page {
       for (const [key, value] of Object.entries(response)) {
         this.lstPizza.push(value);
       }
-      console.log(this.lstPizza);
     });
   }
 
   pizzaDetail(pizza) {
     localStorage.setItem('pizza', JSON.stringify(pizza));
-    console.log(pizza);
-    this.route.navigate(['/tab2']);
+    this.route.navigate(['/details']);
   }
   pizzaAdd(pizza) {
     this.pizzas = JSON.parse(localStorage.getItem('basket'));

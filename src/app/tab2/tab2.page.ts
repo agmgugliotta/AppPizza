@@ -7,11 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class Tab2Page {
 
-  pizza: any;
-
   constructor() {
-    this.pizza = JSON.parse(localStorage.getItem('pizza'));
-    console.log(this.pizza);
   }
 
 }
