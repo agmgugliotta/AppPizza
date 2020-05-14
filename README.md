@@ -14,14 +14,14 @@
 * Prix
 * Bouton ajout dans le panier
 
-3 Panier TO DO
+3 Panier : TO DO
 * Un bouton est disponible dans le header avec une icône panier
 * Ce bouton affiche le nombre de pizza dans le panier s'il y en a
 * Au clic sur le bouton du header, une liste apparait avec les pizza présentes dans le panier
 * Un bouton de suppression est disponible sur chaque pizza de la liste
 * Il est possible de choisir la quantité de pizza
 
-4 Administration
+4 Administration : TO DO
 * Liste des pizza
 * Un bouton de suppression (message d'avertissement avant la réelle suppression) pour chaque pizza
 * Un bouton de modification pour chaque pizza qui redirige vers un formulaire
@@ -29,7 +29,7 @@
 * Liste des ingrédients
 * CRUD des ingrédients similaire aux pizza
     
-5 Formulaire
+5 Formulaire : TO DO
 * Ingredients
 * Nom
 * Pizza
@@ -38,7 +38,7 @@
 * Prix
 * Ingrédients
 
-API
+API : TO DO
 
 liste des ressources https://api.ynov.jcatania.io/db
 * Pizza : https://api.ynov.jcatania.io/pizza
