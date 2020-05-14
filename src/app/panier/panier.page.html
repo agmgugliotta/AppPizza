@@ -1,12 +1,11 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Choose existing Pizzas
+      <ion-button (click)="backHome()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+      panier
     </ion-title>
-    <ion-item *ngIf="nbPizza > 0" (click)="basket()" class="ion-activated">
-      <ion-icon name="basket-outline" slot="start"></ion-icon>
-      <ion-label>{{nbPizza}}</ion-label>
-    </ion-item>
   </ion-toolbar>
 </ion-header>
 
@@ -21,9 +20,10 @@
     <ion-row>
       <ion-col col-4 *ngFor="let pizza of lstPizza">
         <h1>{{pizza.nom}}</h1>
-        <img [src]="pizza.photo" (click)="pizzaDetail(pizza)">
+        <img [src]="pizza.photo">
         <h3>{{pizza.prix}} €</h3>
-        <h6 (click)="pizzaAdd(pizza)">Ajouter au panier</h6>
+        <ion-input value="{{lstPizza.length}}" (change)="quantityPizza()">Quantité :</ion-input>
+        <h6 (click)="pizzaRemove(pizza)">Retirer du panier</h6>
       </ion-col>
     </ion-row>
   </ion-grid>
