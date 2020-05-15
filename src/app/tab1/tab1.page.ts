@@ -11,24 +11,14 @@ import { Basket } from '../Basket';
   styleUrls: ['tab1.page.scss']
 })
 
-export class Tab1Page {
-
-  pizzaApiUrl = 'https://api.ynov.jcatania.io/pizza';
+export class Tab1Page implements OnInit{
 
   constructor(private http: HttpClient, private route: Router, public modalCtrl: ModalController, private basket: Basket) {
     localStorage.clear();
+  }
 
-    this.http.get(this.pizzaApiUrl).subscribe((response) => {
-      for (const [key, value] of Object.entries(response)) {
-        this.basket.lstPizza.push(value);
-      }
-    });
-
-    this.http.get(this.pizzaApiUrl).subscribe((response) => {
-      for (const [key, value] of Object.entries(response)) {
-        this.basket.lstIngredients.push(value);
-      }
-    });
+  ngOnInit() {
+    this.basket.getData();
   }
 
   async showModal() {

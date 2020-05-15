@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Basket } from '../Basket';
 
@@ -9,7 +10,14 @@ import { Basket } from '../Basket';
 })
 export class Tab3Page {
 
-  constructor(private basket: Basket,  private route: Router) {
+  pizzaApiUrl = 'https://api.ynov.jcatania.io/pizza';
+  ingredientApiUrl = 'https://api.ynov.jcatania.io/ingredient';
+
+  constructor(private http: HttpClient, private basket: Basket,  private route: Router) {
+  }
+
+  addPizza() {
+    // this.route.navigate(['/majPizza']);
   }
 
   majPizza(pizza) {
@@ -19,11 +27,17 @@ export class Tab3Page {
 
   deletePizza(pizza) {
     if (confirm('Do you want to delete ' + pizza['nom'] + ' pizza ?') === true) {
-      // TO DO
-      alert('suppresion effectué');
+      this.http.delete(this.pizzaApiUrl + '/' + pizza['id']).subscribe((response) => {
+        this.basket.getData();
+        alert('Suppresion effectué');
+      });
     } else {
-      alert('suppresion annulé');
+      alert('Suppresion annulé');
     }
+  }
+
+  addIngredient() {
+    // this.route.navigate(['/majIngredient']);
   }
 
   majIngredient(ingredient) {
@@ -34,10 +48,12 @@ export class Tab3Page {
 
   deleteIngredient(ingredient) {
     if (confirm('Do you want to delete ' + ingredient['nom'] + ' ingredient ?') === true) {
-      // TO DO
-      alert('suppresion effectué');
+      this.http.delete(this.ingredientApiUrl + '/' + ingredient['id']).subscribe((response) => {
+        this.basket.getData();
+        alert('Suppresion effectué');
+      });
     } else {
-      alert('suppresion annulé');
+      alert('Suppresion annulé');
     }
   }
 

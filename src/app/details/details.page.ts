@@ -7,15 +7,20 @@ import { Basket } from '../Basket';
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
 })
-export class DetailsPage {
+export class DetailsPage implements OnInit{
 
   pizzaApiUrl = 'https://api.ynov.jcatania.io/pizza';
 
   constructor(private route: Router, private basket: Basket) {
+  }
+
+  ngOnInit() {
     this.pizzaIngredientsList(this.basket.pizza);
   }
 
   pizzaIngredientsList(pizza) {
+    this.basket.lstIngredientsOfPizza = [];
+
     for (let i = 0; i < pizza['ingredients'].length; i++) {
       for (let x = 0; x < this.basket.lstIngredients.length; x++) {
         if (pizza['ingredients'][i] === this.basket.lstIngredients[x]['id']) {

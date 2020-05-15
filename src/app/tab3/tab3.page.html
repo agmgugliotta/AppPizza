@@ -3,6 +3,14 @@
     <ion-title>
       Settings
     </ion-title>
+    <ion-item class="ion-activated">
+      <ion-icon (click)="addPizza()" name="add-circle-outline" slot="start"></ion-icon>
+      <ion-label>Ajouter une pizza</ion-label>
+    </ion-item>
+    <ion-item class="ion-activated">
+    <ion-icon (click)="addIngredient()" name="add-circle-outline" slot="start"></ion-icon>
+    <ion-label>Ajouter un ingrédient</ion-label>
+  </ion-item>
   </ion-toolbar>
 </ion-header>
 
