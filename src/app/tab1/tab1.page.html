@@ -3,8 +3,8 @@
     <ion-title>
       Choose existing Pizzas
     </ion-title>
-    <ion-item *ngIf="nbPizza > 0" (click)="basket()" class="ion-activated">
-      <ion-icon name="basket-outline" slot="start"></ion-icon>
+    <ion-item *ngIf="nbPizza" class="ion-activated">
+      <ion-icon (click)="showModal()" name="basket-outline" slot="start"></ion-icon>
       <ion-label>{{nbPizza}}</ion-label>
     </ion-item>
   </ion-toolbar>

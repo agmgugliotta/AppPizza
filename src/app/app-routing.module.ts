@@ -23,8 +23,8 @@ const routes: Routes = [
     loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
   },
   {
-    path: 'panier',
-    loadChildren: () => import('./panier/panier.module').then( m => m.PanierPageModule)
+    path: 'modal-popup',
+    loadChildren: () => import('./modal-popup/modal-popup.module').then( m => m.ModalPopupPageModule)
   }
 ];
 @NgModule({

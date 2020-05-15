@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { ModalPopupPage } from '../modal-popup/modal-popup.page';
 
 @Component({
   selector: 'app-tab1',
@@ -16,17 +18,17 @@ export class Tab1Page implements OnInit{
   pizzas: any[] = null;
   nbPizza = 0;
 
-  constructor(private http: HttpClient, private route: Router) {
+  constructor(private http: HttpClient, private route: Router, public modalCtrl: ModalController) {
     localStorage.clear();
-  }
 
-  ngOnInit() {
     this.http.get(this.pizzaApiUrl).subscribe((response) => {
       for (const [key, value] of Object.entries(response)) {
         this.lstPizza.push(value);
       }
     });
+  }
 
+  ngOnInit() {
     console.log('oui');
     if (this.pizzas != null) {
       console.log('not null');
@@ -37,6 +39,15 @@ export class Tab1Page implements OnInit{
     } else {
       this.pizzas = [];
     }
+  }
+  async showModal() {
+    const modal = await this.modalCtrl.create({
+      component: ModalPopupPage,
+      componentProps: {
+        name: 'Hello User'
+      }
+    });
+    return await modal.present();
   }
 
   pizzaDetail(pizza) {
