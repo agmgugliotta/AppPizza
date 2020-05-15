@@ -23,6 +23,12 @@ export class Tab1Page {
         this.basket.lstPizza.push(value);
       }
     });
+
+    this.http.get(this.pizzaApiUrl).subscribe((response) => {
+      for (const [key, value] of Object.entries(response)) {
+        this.basket.lstIngredients.push(value);
+      }
+    });
   }
 
   async showModal() {
@@ -41,10 +47,7 @@ export class Tab1Page {
   }
 
   pizzaAdd(pizza) {
-    // localStorage.setItem('pizza', JSON.stringify(pizza));
     this.basket.pizzas.push(pizza);
-    // localStorage.setItem('basket', JSON.stringify(this.basket.pizzas));
-
     this.basket.nbPizza = this.basket.pizzas.length;
   }
 }

@@ -14,11 +14,11 @@
 * Prix
 * Bouton ajout dans le panier
 
-3 Panier : *TO DO*
-* Un bouton est disponible dans le header avec une icône panier
-* Ce bouton affiche le nombre de pizza dans le panier s'il y en a
-* Au clic sur le bouton du header, une liste apparait avec les pizza présentes dans le panier
-* Un bouton de suppression est disponible sur chaque pizza de la liste
+3 Panier :
+* Un bouton est disponible dans le header avec une icône panier :white_check_mark:
+* Ce bouton affiche le nombre de pizza dans le panier s'il y en a :white_check_mark:
+* Au clic sur le bouton du header, une liste apparait avec les pizza présentes dans le panier :white_check_mark:
+* Un bouton de suppression est disponible sur chaque pizza de la liste :white_check_mark:
 * Il est possible de choisir la quantité de pizza
 
 4 Administration : *TO DO*

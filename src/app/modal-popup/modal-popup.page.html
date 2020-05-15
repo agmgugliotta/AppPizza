@@ -14,7 +14,7 @@
         <h1>{{pizza.nom}}</h1>
         <img [src]="pizza.photo">
         <h3>{{pizza.prix}} €</h3>
-        <ion-input value="{{basket.pizzas.length}}" (change)="quantityPizza()">Quantité :</ion-input>
+        <ion-input [(ngModel)]="nbOfPizza" value="" (change)="quantityPizza(pizza)">Quantité :</ion-input>
         <h6 (click)="pizzaRemove(pizza)">Retirer du panier</h6>
       </ion-col>
     </ion-row>

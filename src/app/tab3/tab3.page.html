@@ -12,6 +12,30 @@
       <ion-title size="large">Administration</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <br>
+  <ion-title>Administration des Pizza</ion-title>
+  <ion-grid *ngIf="basket.lstPizza">
+    <ion-row>
+      <ion-col col-4 *ngFor="let pizza of basket.lstPizza">
+        <h1>{{pizza.nom}}</h1>
+        <img [src]="pizza.photo">
+        <h3>{{pizza.prix}} €</h3>
+        <h6 (click)="majPizza(pizza)">Modifier la pizza</h6>
+        <h6 (click)="deletePizza(pizza)">Supprimer la pizza</h6>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <br>
+  <br>
+  <ion-title>Administration des Ingrédients</ion-title>
+  <ion-grid *ngIf="basket.lstIngredients">
+    <ion-row>
+      <ion-col col-4 *ngFor="let ingredient of basket.lstIngredients">
+        <h1>{{ingredient.nom}}</h1>
+        <h6 (click)="majIngredient(ingredient)">Modifier l'ingrédient</h6>
+        <h6 (click)="deleteIngredient(ingredient)">Supprimer l'ingrédient</h6>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <br>
 </ion-content>

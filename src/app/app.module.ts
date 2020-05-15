@@ -12,11 +12,12 @@ import { HttpClientModule } from  '@angular/common/http';
 import {AppComponent} from './app.component';
 import { ModalPopupPage } from './modal-popup/modal-popup.page';
 import {Basket} from './Basket';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, ModalPopupPage],
   entryComponents: [ModalPopupPage],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule],
   providers: [
     StatusBar,
     SplashScreen,

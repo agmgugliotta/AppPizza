@@ -11,7 +11,8 @@ import { Basket } from '../Basket';
 })
 export class ModalPopupPage {
 
-  basketContent: any[] = [];
+  nbOfPizza: number;
+  cpt: number;
 
   constructor(public navParams: NavParams, public modalCtrl: ModalController, private http: HttpClient, private route: Router,
               private basket: Basket) {
@@ -32,7 +33,30 @@ export class ModalPopupPage {
     this.basket.nbPizza = this.basket.pizzas.length;
   }
 
-  quantityPizza() {
-    // TO DO
-  }
+  /*quantityPizza(pizza) {
+    const index =  this.basket.pizzas.indexOf(pizza);
+    this.cpt = 0;
+    for (let i = 0; i < this.basket.pizzas.length; i++) {
+      if (this.basket.pizzas[i]['id'] === pizza['id']) {
+        this.cpt = this.cpt + 1;
+      }
+    }
+    if (this.nbOfPizza !== this.cpt) {
+      if (this.nbOfPizza > 0) {
+        if (this.nbOfPizza > this.cpt) {
+          for (let i = 0; i < this.cpt; this.cpt++) {
+            if (this.basket.pizzas[i]['id'] === pizza['id']) {
+              this.basket.pizzas.push(pizza);
+            }
+          }
+        } else if (this.nbOfPizza < this.cpt) {
+          for (let i = 0; i < this.cpt; this.cpt--) {
+            if (this.basket.pizzas[i]['id'] === pizza['id']) {
+              this.basket.pizzas.slice(this.basket.pizzas.indexOf(this.basket.pizzas[i]));
+            }
+          }
+        }
+      }
+    }
+  }*/
 }
