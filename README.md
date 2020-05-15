@@ -21,12 +21,12 @@
 * Un bouton de suppression est disponible sur chaque pizza de la liste :white_check_mark:
 * Il est possible de choisir la quantité de pizza
 
-4 Administration : *TO DO*
-* Liste des pizza
-* Un bouton de suppression (message d'avertissement avant la réelle suppression) pour chaque pizza
+4 Administration :
+* Liste des pizza :white_check_mark:
+* Un bouton de suppression (message d'avertissement avant la réelle suppression) pour chaque pizza :white_check_mark:
 * Un bouton de modification pour chaque pizza qui redirige vers un formulaire
 * Un bouton est présent dans le header pour ajouter: une pizza ou un ingredient qui redirige vers le même formulaire que la modification
-* Liste des ingrédients
+* Liste des ingrédients :white_check_mark:
 * CRUD des ingrédients similaire aux pizza
     
 5 Formulaire : *TO DO*
@@ -38,7 +38,7 @@
 * Prix
 * Ingrédients
 
-API : *TO DO*
+API :
 
 liste des ressources https://api.ynov.jcatania.io/db
 * Pizza : https://api.ynov.jcatania.io/pizza
