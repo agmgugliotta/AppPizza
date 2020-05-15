@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Basket } from '../Basket';
 
 @Component({
   selector: 'app-details',
@@ -11,19 +12,15 @@ export class DetailsPage {
 
   pizzaApiUrl = 'https://api.ynov.jcatania.io/ingredient';
 
-  pizza: any;
-  pizzas: any[];
-
   lstIngredients: Array<object> = [];
   lstIngredientsOfPizza: Array<object> = [];
 
-  constructor(private http: HttpClient, private route: Router) {
-    this.pizza = JSON.parse(localStorage.getItem('pizza'));
+  constructor(private http: HttpClient, private route: Router, private basket: Basket) {
     this.http.get(this.pizzaApiUrl).subscribe((response) => {
       for (const [key, value] of Object.entries(response)) {
         this.lstIngredients.push(value);
       }
-      this.pizzaIngredientsList(this.pizza);
+      this.pizzaIngredientsList(this.basket.pizza);
     });
   }
 
@@ -38,9 +35,8 @@ export class DetailsPage {
   }
 
   pizzaAdd(pizza) {
-    this.pizzas = JSON.parse(localStorage.getItem('basket'));
-    this.pizzas.push(pizza);
-    localStorage.setItem('basket', JSON.stringify(this.pizzas));
+    this.basket.pizzas.push(pizza);
+    this.basket.nbPizza = this.basket.pizzas.length;
   }
 
   backHome() {

@@ -2,26 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import {ModalController, NavParams} from '@ionic/angular';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
+import { Basket } from '../Basket';
 
 @Component({
   selector: 'app-modal-popup',
   templateUrl: './modal-popup.page.html',
   styleUrls: ['./modal-popup.page.scss'],
 })
-export class ModalPopupPage implements OnInit {
+export class ModalPopupPage {
 
-  lstPizza: Array<object> = [];
-  pizzas: any[] = [];
+  basketContent: any[] = [];
 
-  constructor(public navParams: NavParams,
-              public modalCtrl: ModalController,
-              private http: HttpClient,
-              private route: Router) {
-    this.pizzas = JSON.parse(localStorage.getItem('basket'));
-    this.pizzas.forEach(pizza => this.lstPizza.push(JSON.parse(pizza)));
-  }
-
-  ngOnInit() {
+  constructor(public navParams: NavParams, public modalCtrl: ModalController, private http: HttpClient, private route: Router,
+              private basket: Basket) {
   }
 
   closeModal() {
@@ -30,21 +23,16 @@ export class ModalPopupPage implements OnInit {
     });
   }
 
-  backHome() {
-    localStorage.setItem('basket', JSON.stringify(this.lstPizza));
-    this.route.navigate(['/tab1']);
-  }
-
   pizzaRemove(pizza) {
-    const index =  this.lstPizza.indexOf(pizza);
+    const index =  this.basket.pizzas.indexOf(pizza);
     if (index > -1) {
-      this.lstPizza.splice(index, 1);
+      this.basket.pizzas.splice(index, 1);
     }
-    localStorage.setItem('basket', JSON.stringify(this.lstPizza));
+
+    this.basket.nbPizza = this.basket.pizzas.length;
   }
 
   quantityPizza() {
     // TO DO
   }
-
 }

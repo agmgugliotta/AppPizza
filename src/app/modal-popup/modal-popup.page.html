@@ -8,13 +8,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid *ngIf="lstPizza">
+  <ion-grid *ngIf="basket.pizzas">
     <ion-row>
-      <ion-col col-4 *ngFor="let pizza of lstPizza">
+      <ion-col col-4 *ngFor="let pizza of basket.pizzas">
         <h1>{{pizza.nom}}</h1>
         <img [src]="pizza.photo">
         <h3>{{pizza.prix}} €</h3>
-        <ion-input value="{{lstPizza.length}}" (change)="quantityPizza()">Quantité :</ion-input>
+        <ion-input value="{{basket.pizzas.length}}" (change)="quantityPizza()">Quantité :</ion-input>
         <h6 (click)="pizzaRemove(pizza)">Retirer du panier</h6>
       </ion-col>
     </ion-row>
