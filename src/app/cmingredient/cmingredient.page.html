@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="backHome()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <ion-title>Administration des Ingrédients</ion-title>
+  <br>
+  <br>
+  <ion-grid>
+    <ion-row *ngIf="this.basket.CMingredient;else other_case">
+      <ion-col col-4>
+        <ion-label>Name : </ion-label>
+        <ion-input [(ngModel)]="name"  [value]="this.basket.CMingredient['nom']"></ion-input>
+        <br>
+        <h6 (click)="updateIngredient(this.basket.CMingredient)">Add ingrédient</h6>
+      </ion-col>
+    </ion-row>
+    <ng-template #other_case>
+      <ion-row>
+        <ion-col col-4>
+          <ion-label>Name : </ion-label>
+          <ion-input [(ngModel)]="name"  placeholder="Ingrédient"></ion-input>
+          <br>
+          <h6 (click)="createIngredient()">Add ingrédient</h6>
+        </ion-col>
+      </ion-row>
+    </ng-template>
+  </ion-grid>
+</ion-content>

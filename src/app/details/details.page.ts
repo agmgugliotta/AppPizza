@@ -16,7 +16,6 @@ export class DetailsPage implements OnInit{
 
   ngOnInit() {
     this.pizzaIngredientsList(this.basket.pizza);
-    console.log(this.basket.pizza);
   }
 
   pizzaIngredientsList(pizza) {

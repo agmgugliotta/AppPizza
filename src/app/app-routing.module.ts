@@ -29,6 +29,10 @@ const routes: Routes = [
   {
     path: 'cmpizza',
     loadChildren: () => import('./cmpizza/cmpizza.module').then( m => m.CMpizzaPageModule)
+  },
+  {
+    path: 'cmingredient',
+    loadChildren: () => import('./cmingredient/cmingredient.module').then( m => m.CmingredientPageModule)
   }
 ];
 @NgModule({
