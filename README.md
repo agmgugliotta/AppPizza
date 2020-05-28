@@ -24,19 +24,24 @@
 4 Administration :
 * Liste des pizza :white_check_mark:
 * Un bouton de suppression (message d'avertissement avant la réelle suppression) pour chaque pizza :white_check_mark:
-* Un bouton de modification pour chaque pizza qui redirige vers un formulaire
-* Un bouton est présent dans le header pour ajouter: une pizza ou un ingredient qui redirige vers le même formulaire que la modification
+* Un bouton de modification pour chaque pizza qui redirige vers un formulaire :white_check_mark:
+* Un bouton est présent dans le header pour ajouter: une pizza ou un ingredient qui redirige vers le même formulaire que la modification :white_check_mark:
 * Liste des ingrédients :white_check_mark:
 * CRUD des ingrédients similaire aux pizza
+    CREATE : :white_check_mark:
+    READ : :white_check_mark:
+    UPDATE : Ingredient : Se met à jour mais les données de l'ingrédient à update ne s'affiche pas dans le HTML
+             Pizza : Se met à jour mais les données de la pizza à update ne s'affiche pas dans le HTML
+                     Pas de MAJ des ingrédients
     
 5 Formulaire : *TO DO*
-* Ingredients
-* Nom
-* Pizza
-* Photo
-* Nom
-* Prix
-* Ingrédients
+* Ingredients :white_check_mark:
+    *  Nom 
+* Pizza : :white_check_mark:
+    * Photo
+    * Nom
+    * Prix 
+    * Ingrédients
 
 API :
 

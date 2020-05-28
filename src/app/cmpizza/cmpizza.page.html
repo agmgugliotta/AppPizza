@@ -13,29 +13,54 @@
   <br>
   <ion-grid>
     <ion-row>
-      <ion-col col-4>
+      <ion-col col-4 *ngIf="basket.CMpizza;else other_case">
         <ion-label>Name : </ion-label>
-        <ion-input [(ngModel)]="name"  placeholder="Pizza"></ion-input>
+        <ion-input [(ngModel)]="name"  [value]="basket.CMpizza['nom']"></ion-input>
         <br>
         <ion-label>Image : </ion-label>
-        <ion-input [(ngModel)]="img" type="file"></ion-input>
+        <ion-input [(ngModel)]="img" type="file" [value]="basket.CMpizza['photo']"></ion-input>
         <br>
         <ion-label>Price in € : </ion-label>
-        <ion-input [(ngModel)]="price" placeholder="0"></ion-input>
+        <ion-input [(ngModel)]="price" [value]="basket.CMpizza['prix']"></ion-input>
         <br>
         <br>
         <ion-title>Ingredients list of pizza</ion-title>
-        <ion-grid *ngIf="basket.CMlstIngredients">
+        <ion-grid *ngIf="basket.lstIngredientsOfPizza" >
           <ion-row>
-            <ion-col col-4 *ngFor="let ingredient of basket.CMlstIngredients">
+            <ion-col col-4 *ngFor="let ingredient of basket.lstIngredientsOfPizza">
               <h1>{{ingredient.nom}}</h1>
               <h6 (click)="deleteIngredient(ingredient)">Enlever l'ingrédient</h6>
             </ion-col>
           </ion-row>
         </ion-grid>
         <br>
-        <h6 (click)="createPizza()">Add pizza</h6>
+        <h6 (click)="updatePizza(this.basket.CMpizza)">Update pizza</h6>
       </ion-col>
+      <ng-template #other_case >
+        <ion-col>
+          <ion-label>Name : </ion-label>
+          <ion-input [(ngModel)]="name"  placeholder="Pizza"></ion-input>
+          <br>
+          <ion-label>Image : </ion-label>
+          <ion-input [(ngModel)]="img" type="file"></ion-input>
+          <br>
+          <ion-label>Price in € : </ion-label>
+          <ion-input [(ngModel)]="price" placeholder="0"></ion-input>
+          <br>
+          <br>
+          <ion-title>Ingredients list of pizza</ion-title>
+          <ion-grid *ngIf="basket.CMlstIngredients">
+            <ion-row>
+              <ion-col col-4 *ngFor="let ingredient of basket.CMlstIngredients">
+                <h1>{{ingredient.nom}}</h1>
+                <h6 (click)="deleteIngredient(ingredient)">Enlever l'ingrédient</h6>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <br>
+          <h6 (click)="createPizza()">Add pizza</h6>
+        </ion-col>
+      </ng-template>
     </ion-row>
   </ion-grid>
   <br>

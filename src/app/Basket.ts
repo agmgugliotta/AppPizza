@@ -14,7 +14,6 @@ export class Basket {
 
     lstIngredients: Array<object> = [];
     lstIngredientsOfPizza: Array<object> = [];
-    ingredient: any;
 
     CMpizza: any;
     CMingredient: any;

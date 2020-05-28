@@ -12,12 +12,12 @@
   <br>
   <br>
   <ion-grid>
-    <ion-row *ngIf="this.basket.CMingredient;else other_case">
+    <ion-row *ngIf="basket.CMingredient;else other_case">
       <ion-col col-4>
         <ion-label>Name : </ion-label>
-        <ion-input [(ngModel)]="name"  [value]="this.basket.CMingredient['nom']"></ion-input>
+        <ion-input [(ngModel)]="name" [value]="basket.CMingredient['nom']"></ion-input>
         <br>
-        <h6 (click)="updateIngredient(this.basket.CMingredient)">Add ingrédient</h6>
+        <h6 (click)="updateIngredient(basket.CMingredient)">Update ingrédient</h6>
       </ion-col>
     </ion-row>
     <ng-template #other_case>

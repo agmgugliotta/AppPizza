@@ -24,12 +24,8 @@ export class CMpizzaPage implements OnInit {
   constructor(private http: HttpClient, private basket: Basket,  private route: Router) { }
 
   ngOnInit() {
-    this.http.get(this.ingredientApiUrl).subscribe((response) => {
-      this.basket.lstIngredients = [];
-      for (const [key, value] of Object.entries(response)) {
-        this.basket.lstIngredients.push(value);
-      }
-    });
+    this.pizzaIngredientsList(this.basket.CMpizza);
+    console.log(this.basket.lstIngredientsOfPizza);
   }
 
   createPizza() {
@@ -47,11 +43,44 @@ export class CMpizzaPage implements OnInit {
 
     if (confirm('Do you want to add ' + this.newPizza.nom + ' pizza ?') === true) {
       this.http.post(this.pizzaApiUrl, this.newPizza).subscribe((response) => {
+        this.basket.getData();
         alert('Ajout effectué');
       });
     } else {
       alert('Ajout annulé');
       }
+  }
+
+  updatePizza(pizza) {
+    this.newPizza = <Pizza>{};
+
+    this.idIngredient = pizza['ingredients'];
+    this.newPizza.ingredients = this.idIngredient;
+    this.newPizza.nom = this.name;
+    this.newPizza.photo = this.img;
+    this.newPizza.prix = this.price;
+
+    if (confirm('Do you want to add ' + this.newPizza.nom + ' pizza ?') === true) {
+      this.http.patch(this.pizzaApiUrl + '/' + pizza['id'], this.newPizza).subscribe((response) => {
+        this.basket.getData();
+        alert('Ajout effectué');
+      });
+    } else {
+      alert('Ajout annulé');
+    }
+  }
+
+  pizzaIngredientsList() {
+    const pizza = this.basket.CMpizza;
+    this.basket.lstIngredientsOfPizza = [];
+
+    for (let i = 0; i < pizza['ingredients'].length; i++) {
+      for (let x = 0; x < this.basket.lstIngredients.length; x++) {
+        if (pizza['ingredients'][i] === this.basket.lstIngredients[x]['id']) {
+          this.basket.lstIngredientsOfPizza.push(this.basket.lstIngredients[x]['nom']);
+        }
+      }
+    }
   }
 
   addIngredient(ingredient) {
@@ -66,6 +95,9 @@ export class CMpizzaPage implements OnInit {
   }
 
   backHome() {
+    this.basket.CMpizza = '';
+    this.basket.CMlstIngredients = [];
+    this.basket.getData();
     this.route.navigate(['/tab3']);
   }
 

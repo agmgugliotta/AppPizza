@@ -45,7 +45,7 @@ export class Tab3Page implements OnInit {
   }
 
   majIngredient(ingredient) {
-    this.basket.ingredient = ingredient;
+    this.basket.CMingredient = ingredient;
     this.route.navigate(['/cmingredient']);
   }
 
