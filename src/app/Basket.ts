@@ -16,6 +16,10 @@ export class Basket {
     lstIngredientsOfPizza: Array<object> = [];
     ingredient: any;
 
+    CMpizza: any;
+    CMingredient: any;
+    CMlstIngredients: Array<object> = [];
+
     constructor(private http: HttpClient, ) {
     }
 

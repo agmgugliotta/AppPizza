@@ -25,6 +25,10 @@ const routes: Routes = [
   {
     path: 'modal-popup',
     loadChildren: () => import('./modal-popup/modal-popup.module').then( m => m.ModalPopupPageModule)
+  },
+  {
+    path: 'cmpizza',
+    loadChildren: () => import('./cmpizza/cmpizza.module').then( m => m.CMpizzaPageModule)
   }
 ];
 @NgModule({

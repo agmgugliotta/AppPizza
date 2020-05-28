@@ -8,7 +8,7 @@ import { Basket } from '../Basket';
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page {
+export class Tab3Page implements OnInit{
 
   pizzaApiUrl = 'https://api.ynov.jcatania.io/pizza';
   ingredientApiUrl = 'https://api.ynov.jcatania.io/ingredient';
@@ -16,13 +16,17 @@ export class Tab3Page {
   constructor(private http: HttpClient, private basket: Basket,  private route: Router) {
   }
 
+  ngOnInit(){
+    this.basket.getData();
+  }
+
   addPizza() {
-    // this.route.navigate(['/majPizza']);
+    this.route.navigate(['/cmpizza']);
   }
 
   majPizza(pizza) {
-    this.basket.pizza = pizza;
-    // this.route.navigate(['/majPizza']);
+    this.basket.CMpizza = pizza;
+    this.route.navigate(['/cmpizza']);
   }
 
   deletePizza(pizza) {
