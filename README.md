@@ -19,7 +19,7 @@
 * Ce bouton affiche le nombre de pizza dans le panier s'il y en a :white_check_mark:
 * Au clic sur le bouton du header, une liste apparait avec les pizza présentes dans le panier :white_check_mark:
 * Un bouton de suppression est disponible sur chaque pizza de la liste :white_check_mark:
-* Il est possible de choisir la quantité de pizza
+* Il est possible de choisir la quantité de pizza : *TO DO*
 
 4 Administration :
 * Liste des pizza :white_check_mark:
@@ -34,16 +34,16 @@
              Pizza : Se met à jour mais les données de la pizza à update ne s'affiche pas dans le HTML
                      Pas de MAJ des ingrédients
     
-5 Formulaire : *TO DO*
-* Ingredients :white_check_mark:
+5 Formulaire : :white_check_mark:
+* Ingredients :
     *  Nom 
-* Pizza : :white_check_mark:
+* Pizza :
     * Photo
     * Nom
     * Prix 
     * Ingrédients
 
-API :
+API : *TO DO*
 
 liste des ressources https://api.ynov.jcatania.io/db
 * Pizza : https://api.ynov.jcatania.io/pizza
